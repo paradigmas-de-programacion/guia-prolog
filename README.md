@@ -1,18 +1,17 @@
 # Guía de Ejercicios: Prolog
 
-Resolver los siguientes ejercicios utilizando el lenguaje de programación Prolog, con el paradigma lógico.
-Encontrarás una estructura de proyecto conveniente para ese objetivo.
+Resolver los siguientes ejercicios utilizando el lenguaje de programación Prolog, con el paradigma lógico, intentando buscar la mejor solución posible para cada caso
 
-## Ejercicio 01
-Las siguientes clausulas corresponden al programa "menú" de un restaurante. El restaurante ofrece menús completos compuestos por una entrada, un plato principal y un postre. El plato principal puede ser carne o pescado.
+## 01 - Menú de restaurant
+La siguiente base de conocimiento corresponde al programa "menú" de un restaurante. El restaurante ofrece menús completos compuestos por una entrada, un plato principal y un postre. El plato principal puede ser carne o pescado.
 
 ```prolog
 entrada(paella).
 entrada(gazpacho).
 entrada(consomé).
 
-carne(filete_de_cerdo).
-carne(pollo_asado).
+carne('filete de cerdo').
+carne('pollo asado').
 
 pescado(trucha).
 pescado(bacalao).
@@ -23,24 +22,23 @@ postre(pastel).
 ```
 
 Implementar las reglas necesarias para formular las siguientes consultas en Prolog:
-1. ¿Cuáles son los menús que ofrece el restaurante?
-2. ¿Cuáles son los menús que tienen Consomé en las entradas?
-3. ¿Cuáles son los menús que no contienen flan como postre?
+1. ¿Cuáles son los menús que ofrece el restaurante? (menu/3)
+2. ¿Cuáles son los menús que tienen consomé en las entradas? (menu_con_consomé/3). ¿Sería mejor esta regla con 2 parámetros?
+3. ¿Cuáles son los menús que no contienen flan como postre? (menu_sin_flan/3)
+4. ¿Cuáles son los menús que tienen carne como plato principal? (menu_con_carne/3)
+5. Completar el programa "menú" de manera que una comida esté formada también por la elección de una bebida, a elegir entre vino, cerveza o agua mineral. (menu/4)
 
-## Ejercicio 02
-Completar el programa "menú" de manera que una comida esté formada también por la elección de una bebida, a elegir entre vino, cerveza o agua mineral.
-
-## Ejercicio 03
+## 02 - Árbol genealógico
 El árbol genealógico siguiente se describe con el programa Prolog:
 
 ```prolog
-hombre(pedro) .
-hombre(manuel) .
-hombre(arturo) .
+hombre(pedro).
+hombre(manuel).
+hombre(arturo).
 mujer(maría).
 padre(pedro, manuel).
 padre(pedro, arturo).
-padre(pedro, maría) .
+padre(pedro, maría).
 ```
 
 A partir de estas afirmaciones, formular las reglas generales de:
@@ -56,36 +54,36 @@ hermana(X,Y) % expresa que X es una hermana de Y.
 
 > **Nota:** Un individuo no puede ser hermano ni hermana de sí mismo.
 
-## Ejercicio 04
+## 03 - Agencia de viajes
 Una agencia de viajes propone a sus clientes viajes de una o varias semanas a Roma, Londres o Túnez. El catálogo de la agencia contiene, para cada destino, el precio del transporte (con independencia de la duración) y el precio de una semana de estancia que varía según el destino y el nivel de comodidad elegidos: hotel, hostal o camping.
 
-Escribir el conjunto de declaraciones que describen este catálogo (se muestra a continuación).
+Escribir el conjunto de declaraciones que describen este catálogo.
 
 ```prolog
-transporte(roma,20).
-transporte(londres,30).
-transporte(tunez,10).
+transporte(roma, 20).
+transporte(londres, 30).
+transporte(tunez, 10).
 
-alojamiento(roma,hotel,50).
-alojamiento(roma,hostal,30).
-alojamiento(roma,camping,10).
-alojamiento(londres,hotel,60).
-alojamiento(londres,hostal,40).
-alojamiento(londres,camping,20).
-alojamiento(tunez,hotel,40).
-alojamiento(tunez,hostal,20).
-alojamiento(tunez,camping,5).
+alojamiento(roma, hotel, 50).
+alojamiento(roma, hostal, 30).
+alojamiento(roma, camping, 10).
+alojamiento(londres, hotel, 60).
+alojamiento(londres, hostal, 40).
+alojamiento(londres, camping, 20).
+alojamiento(tunez, hotel, 40).
+alojamiento(tunez, hostal, 20).
+alojamiento(tunez, camping, 5).
 ```
 
-1. Expresar la relación `viaje(C,S,H,P)` que se interpreta por:
-"el viaje a la ciudad `C` durante `S` semanas con estancia en `H` cuesta `P` pesos"
-2. Completar con `viajeeconomico(C,S,H,P,Pmax)` que expresa que el costo `P` es menor que `Pmax` pesos.
+1. Crear la regla `viaje/4` tal que se cumpla que: "el viaje a una Ciudad durante S semanas con un Hospedaje valido con un Precio total"
+2. Completar con `viajeeconomico/5`, agregando un parámetro extra que defina el Precio máximo del viaje.
+3. (Opcional) Utilizando el predicado [var/1](https://www.swi-prolog.org/pldoc/man?predicate=var/1), intentar definir el precio si Semanas esta definido, sino dejar la expresion planteada.
+4. (Opcional) Utilizando el modulo clpfd `:- use_module(library(clpfd)).`, reemplazar el is/2 del punto 1 por el operador #=/2 y comprobar que pasa si no se tiene información suficiente de las semanas y del precio, y luego comprobar si es capaz de predecir las semanas. Nota: #=/2 funciona solo para enteros.
 
-## Ejercicio 05
+## 04 - Notas de examen
 Se dispone de un listado con los resultados de los parciales de los alumnos del curso de **Paradigmas de Programación**, organizado de la siguiente manera:
 
 ### Versión 1
-Se dispone de las notas de ambos parciales para todos los alumnos.
 
 ```prolog
 parcial1(ana,7).
@@ -112,7 +110,7 @@ Se desea obtener:
 El listado se compone de al menos una nota para cada alumno. En caso de que algún alumno adeude uno de los parciales (es decir no tenga un hecho relacionado a su parcial), su condición es ausente.
 No se toman en cuenta quienes no dieron ninguno de los parciales.
 
-## Ejercicio 06
+## 05 - Agencia matrimonial
 Una agencia matrimonial de los años '80 tiene un fichero de candidatos al matrimonio organizado según las declaraciones siguientes:
 
 ```prolog
@@ -134,8 +132,8 @@ Que expresa que la persona `N` busca una pareja de altura `A`, con cabello color
 Se considera que dos personas x e y de sexos diferentes son adecuadas si x conviene a y e y conviene a x.
 Se dice que x conviene a y si x conviene físicamente a y (la altura, edad y color de cabello de y son los que busca x) y si, además, los gustos de x e y en música, literatura y deporte coinciden.
 
-## Ejercicio 07
-Con el programa 'menú', dado en clase, describir la semántica de las siguientes tres consultas Prolog y decir cuál es el resultado de la ejecución:
+## 06 - Corte de control
+Con el ejercico resuelto de 'menú', describir la semántica de las siguientes tres consultas Prolog y decir cuál es el resultado de la ejecución:
 
 ```prolog
 menu(E,PP,P), !.
@@ -145,13 +143,38 @@ menu(E,PP,P), !, pescado(PP).
 
 Analizar el comportamiento del operador ! (operador de corte o " cut").
 
-## Ejercicio 08
-Modificar el programa del **Ejercicio 01** (menú) para poder consultar cual es el menú completo que tiene menor cantidad de calorías (agregando las calorias como parte de la información de los hechos)
+## 07 - Conjuntos de actividades
+Dado el siguiente listado de actividades extracurriculares que realiza cada estudiante
 
-## Ejercicio 09
-Basado en el ejemplo de paises.pl visto en clase, complete la base de conocimientos `pais_superficie(P,A)` con todos los países de latinoamérica y codifique las reglas prolog que permitan encontrar el país de mayor superficie.
+```prolog
+natacion(a).
+natacion(b).
+natacion(c).
+natacion(d).
 
-## Ejercicio 10
+futbol(a).
+futbol(b).
+futbol(e).
+futbol(f).
+
+teatro(a).
+teatro(c).
+teatro(e).
+teatro(g).
+```
+
+Se desea saber
+1. Qué estudiantes participan de todas las actividades
+2. Qué estudiantes realizan futbol y no teatro
+3. Qué estudiantes realizan al menos alguna actividad. Evitar duplicados
+4. Qué estudiantes participan de al menos dos actividades
+5. Teniendo un listado de estudiantes total estudiantes/1 comprendido entre \[a, j\], qué estudiantes no realizan ninguna actividad
+
+
+## 08 - Mínimas calorias
+Modificar el programa del ejercicio **01 - Menú de restaurant** para poder consultar cual es el menú completo que tiene menor cantidad de calorías (agregando las calorias como parte de la información de los hechos)
+
+## 09 - Vendedores
 Dado el listado de vendedores y ventas semestrales se desea obtener el listado anual de comisiones. Las comisiones se liquidan de la siguiente manera:
 
 - 20% del total vendido en el año para aquellos vendedores que hayan tenido ventas en ambos semestres y cada una de ellas supera los $ 20000.
@@ -169,7 +192,7 @@ ventas2doSem(vendedor, importe).
 
 > **Nota:** No todos los vendedores venden en ambos semestres, todos los importes son mayores que cero. En caso de no registrarse ventas en algún semestre, no figura la regla correspondiente para ese vendedor.
 
-## Ejercicio 11: Recursividad
+## 10 - Recursividad
 
 1. Codifique en prolog las reglas necesarias para obtener el término N en la serie de Gauss
 2. Codifique en prolog las reglas necesarias para obtener el término N en la serie de Fibonacci (sin, y con mejora)
