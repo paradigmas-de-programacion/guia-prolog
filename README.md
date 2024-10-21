@@ -269,3 +269,14 @@ mcd(10,15,X).
 > X = 5
 ```
 8. Define un predicado `mcm(X,Y,M)` que signifique "M es el mínimo común múltiplo de X e Y"
+
+
+## 12 - Operaciones de listas
+Utilizando los conceptos de lista y recursividad y sin utilizar los predicados existentes para listas en prolog, resolver:
+
+1. Suma de todos los valores de una lista. suma/2 (Lista, total)
+2. Contar cuantos valores repetidos de un elemento hay en una lista. contar/3 (Lista, Elemento, Cantidad)
+3. Buscar todas las posiciones de un elemento en una lista. indice_de/3 (Lista, Elemento, Posicion)
+
+Pudiendo utilizar predicados existentes, resolver
+4. Para un listado de 0 a n hechos nota/1, con notas de 1 a 10, hallar el promedio de las mismas. promedio_nota/1
