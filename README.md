@@ -232,7 +232,8 @@ La salida esperada será
 
 
 ## 09 - Mínimas calorias
-Modificar el programa del ejercicio **01 - Menú de restaurant** para poder consultar cual es el menú completo que tiene menor cantidad de calorías (agregando las calorias como parte de la información de los hechos)
+1. Modificar el programa del ejercicio **01 - Menú de restaurant** para poder consultar cual es el menú completo que tiene menor cantidad de calorías (agregando las calorias como parte de la información de los hechos). Se recomienda primero hacer un menu/4 donde incluya las calorias totales.
+2. Hallar el menú completo que tiene la menor cantidad de calorias, sin contar al menor de todos (hallar el segundo mínimo)
 
 ## 10 - Vendedores
 Dado el listado de vendedores y ventas semestrales se desea obtener el listado anual de comisiones. Las comisiones se liquidan de la siguiente manera:
