@@ -279,4 +279,5 @@ Utilizando los conceptos de lista y recursividad y sin utilizar los predicados e
 3. Buscar todas las posiciones de un elemento en una lista. indice_de/3 (Lista, Elemento, Posicion)
 
 Pudiendo utilizar predicados existentes, resolver
+
 4. Para un listado de 0 a n hechos nota/1, con notas de 1 a 10, hallar el promedio de las mismas. promedio_nota/1
