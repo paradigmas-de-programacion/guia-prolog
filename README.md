@@ -275,7 +275,7 @@ mcd(10,15,X).
 ## 12 - Operaciones de listas
 Utilizando los conceptos de lista y recursividad y sin utilizar los predicados existentes para listas en prolog, resolver:
 
-1. Suma de todos los valores de una lista. suma/2 (Lista, total)
+1. Suma de todos los valores de una lista. suma/2 (Lista, Total)
 2. Contar cuantos valores repetidos de un elemento hay en una lista. contar/3 (Lista, Elemento, Cantidad)
 3. Buscar todas las posiciones de un elemento en una lista. indice_de/3 (Lista, Elemento, Posicion)
 
