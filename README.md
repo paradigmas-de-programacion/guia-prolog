@@ -104,9 +104,9 @@ Se desea obtener:
 
 1. El listado de los alumnos que promocionan la materia
 2. El mismo listado pero esta vez incluyendo la nota final (promedio de los dos parciales) para cada uno
-3. El listado de los alumnos que recursan la materia.
-4. El listado de los alumnos que obtendrán la cursada. 
-5. (maximos) A fin de entregar la medalla al mérito, encontrar de aquellos que promocionan (1b), el o los alumnos con mayor nota final (nombre y nota)
+3. El listado de los alumnos que recursan la materia
+4. El listado de los alumnos que obtendrán la cursada.
+5. (maximos) A fin de entregar la medalla al mérito, encontrar de aquellos que promocionan (punto 2), el o los alumnos con mayor nota final (nombre y nota)
 6. (maximos) Ahora se desea obtener cuales fueron las dos notas más altas, considerando simplemente a la nota como el promedio de la nota de parcial1 y parcial2. Solo interesan los números. Un tip es pensar la resolución en dos etapas, la más alta, y después la más alta de lo restante
 
 ### Versión 2
